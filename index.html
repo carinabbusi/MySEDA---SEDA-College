@@ -1,91 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Letter Verification</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Letter Verification — SEDA</title>
+
+<style>
+/* ====== Tudo com prefixo .sv- para não conflitar com nada ====== */
+:root{
+  --sv-teal:#0A6C7A;
+  --sv-yellow:#F4B01F;
+  --sv-text:#0F172A;
+  --sv-card:#FFFFFF;
+  --sv-shadow:0 12px 28px rgba(0,0,0,.10);
+}
+
+html,body{height:100%}
+body.sv{
+  margin:0;
+  color:var(--sv-text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+  /* Troque pelo nome do seu arquivo de fundo se for diferente */
+  background: url("background.png") center/cover fixed no-repeat;
+}
+
+/* ===== HERO amarelo central ===== */
+.sv-hero-wrap{ display:flex; justify-content:center; padding:18px 12px 8px; }
+.sv-hero{
+  width:100%;
+  max-width:1080px;
+  background:var(--sv-yellow);
+  border-radius:18px;
+  padding:18px 20px 22px;
+  text-align:center;
+  box-shadow:var(--sv-shadow);
+}
+.sv-hero__logo{ height:78px; width:auto; display:block; margin:0 auto 6px; }
+.sv-hero__title{
+  margin:4px 0 12px;
+  font-size:48px;
+  font-weight:900;
+  color:#fff;
+  line-height:1.05;
+}
+.sv-hero__id{
+  display:inline-block;
+  background:#fff;
+  color:#111;
+  padding:14px 18px;
+  border-radius:12px;
+  font-weight:900;
+  font-size:22px;
+  border:3px solid rgba(0,0,0,.15);
+}
+
+/* ===== Wrap & Card ===== */
+.sv-wrap{ max-width:1080px; margin: 0 auto 28px; padding: 0 18px; }
+.sv-card{
+  background:var(--sv-card);
+  border-radius:14px;
+  box-shadow:var(--sv-shadow);
+  padding:20px 22px 10px;
+}
+.sv-card__title{
+  text-align:center;
+  font-size:30px;
+  font-weight:900;
+  color:#1d3557;
+  margin:4px 0 10px;
+}
+.sv-card__divider{
+  height:4px; width:86%; max-width:760px;
+  margin:0 auto 6px; background:var(--sv-yellow); border-radius:999px;
+}
+
+/* ===== Linhas (ícone + rótulo + valor na mesma linha) ===== */
+.sv-row{
+  display:flex;
+  align-items:center;      /* ícone e texto alinhados verticalmente */
+  gap:14px;
+  padding:14px 8px;
+  border-bottom:1px solid #E5E7EB;
+}
+.sv-row:last-child{ border-bottom:0; }
+
+.sv-icon{
+  color:var(--sv-teal);
+  flex:0 0 44px;
+  display:flex; align-items:center; justify-content:center;
+}
+.sv-icon svg{
+  width:44px !important; height:44px !important;
+  min-width:44px; min-height:44px; max-width:44px; max-height:44px;
+}
+
+.sv-kv{
+  display:flex;             /* rótulo + valor lado a lado */
+  flex:1 1 auto;
+  align-items:baseline;
+  gap:8px;
+  flex-wrap:wrap;           /* se faltar espaço, quebram juntos */
+  min-width:0;              /* permite encolher sem empurrar */
+}
+.sv-k{
+  font-weight:900; font-size:18px; color:#1F2937;
+  white-space:nowrap;       /* “Student Name:” não quebra */
+}
+.sv-v{
+  font-weight:600; font-size:18px; color:#5B6472; line-height:1.2;
+  min-width:0;
+}
+.sv-status--enrolled{ color:#0a7d2f; }
+
+/* ===== Rodapé ===== */
+.sv-footer{
+  text-align:center; color:#374151; font-weight:600; margin:16px 0 6px;
+}
+</style>
 </head>
-<body>
-  <!-- Cabeçalho -->
-  <div class="header">
-    <img src="seda-logo-removebg-preview.png" alt="SEDA College Logo">
-    <h1>Letter Verification</h1>
-    <div class="student-id">STUDENT ID: 2401269</div>
+
+<body class="sv">
+  <!-- HERO -->
+  <div class="sv-hero-wrap">
+    <header class="sv-hero">
+      <img src="seda-logo-removebg-preview.png" alt="SEDA College" class="sv-hero__logo" />
+      <h1 class="sv-hero__title">Letter Verification</h1>
+      <div class="sv-hero__id">STUDENT ID: 2401269</div>
+    </header>
   </div>
 
-  <!-- Container principal -->
-  <div class="container">
-    <h2>Verification Result</h2>
+  <!-- CARD -->
+  <main class="sv-wrap">
+    <section class="sv-card">
+      <h2 class="sv-card__title">Verification Result</h2>
+      <div class="sv-card__divider"></div>
 
-    <div class="row">
-      <div class="icon">✔</div>
-      <div class="kv">
-        <div class="k">Letter Issue Date:</div>
-        <div class="v">10th September 2025</div>
+      <!-- Linha: Issue Date -->
+      <div class="sv-row">
+        <span class="sv-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M6.5 12.5l3.5 3.5 7.5-7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <div class="sv-kv">
+          <span class="sv-k">Letter Issue Date:</span>
+          <span class="sv-v">10th September 2025</span>
+        </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="icon">✔</div>
-      <div class="kv">
-        <div class="k">Status:</div>
-        <div class="v">Enrolled</div>
+      <!-- Linha: Status -->
+      <div class="sv-row">
+        <span class="sv-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M6.5 12.5l3.5 3.5 7.5-7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <div class="sv-kv">
+          <span class="sv-k">Status:</span>
+          <span class="sv-v sv-status--enrolled">Enrolled</span>
+        </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="icon">✔</div>
-      <div class="kv">
-        <div class="k">Student Name:</div>
-        <div class="v">Carina Freitas Busi</div>
+      <!-- Linha: Student Name -->
+      <div class="sv-row">
+        <span class="sv-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M6.5 12.5l3.5 3.5 7.5-7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <div class="sv-kv">
+          <span class="sv-k">Student Name:</span>
+          <span class="sv-v">Carina Freitas Busi</span>
+        </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="icon">✔</div>
-      <div class="kv">
-        <div class="k">Date of Birth:</div>
-        <div class="v">28/03/2002</div>
+      <!-- Linha: DOB -->
+      <div class="sv-row">
+        <span class="sv-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M6.5 12.5l3.5 3.5 7.5-7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <div class="sv-kv">
+          <span class="sv-k">Date of Birth:</span>
+          <span class="sv-v">28/03/2002</span>
+        </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="icon">✔</div>
-      <div class="kv">
-        <div class="k">Passport No:</div>
-        <div class="v">gg825080</div>
+      <!-- Linha: Passport -->
+      <div class="sv-row">
+        <span class="sv-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M6.5 12.5l3.5 3.5 7.5-7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <div class="sv-kv">
+          <span class="sv-k">Passport No:</span>
+          <span class="sv-v">gg825080</span>
+        </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="icon">✔</div>
-      <div class="kv">
-        <div class="k">Nationality:</div>
-        <div class="v">Brazilian</div>
+      <!-- Linha: Nationality -->
+      <div class="sv-row">
+        <span class="sv-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M6.5 12.5l3.5 3.5 7.5-7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <div class="sv-kv">
+          <span class="sv-k">Nationality:</span>
+          <span class="sv-v">Brazilian</span>
+        </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="icon">✔</div>
-      <div class="kv">
-        <div class="k">Course Commence Date:</div>
-        <div class="v">15/09/2025</div>
+      <!-- Linha: Course Start -->
+      <div class="sv-row">
+        <span class="sv-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M6.5 12.5l3.5 3.5 7.5-7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <div class="sv-kv">
+          <span class="sv-k">Course Commence Date:</span>
+          <span class="sv-v">15/09/2025</span>
+        </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="icon">✔</div>
-      <div class="kv">
-        <div class="k">Course Completion Date:</div>
-        <div class="v">14/05/2026</div>
+      <!-- Linha: Course End -->
+      <div class="sv-row">
+        <span class="sv-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M6.5 12.5l3.5 3.5 7.5-7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <div class="sv-kv">
+          <span class="sv-k">Course Completion Date:</span>
+          <span class="sv-v">14/05/2026</span>
+        </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- Rodapé -->
-  <div class="footer">
-    © SEDA College 2025
-  </div>
+    <footer class="sv-footer">© SEDA College 2025</footer>
+  </main>
 </body>
 </html>
