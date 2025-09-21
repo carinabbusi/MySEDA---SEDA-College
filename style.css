@@ -1,79 +1,59 @@
-/* Reset básico */
-* {
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f6fa;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-body {
-  font-family: 'Roboto', sans-serif;
-  background: #f7f8fa;
-  color: #333;
-  line-height: 1.6;
-}
-
-/* Cabeçalho */
-.header {
-  background: #f9b233;
+.container {
   text-align: center;
-  padding: 20px 10px;
+  margin-top: 30px;
+  width: 100%;
+  max-width: 700px;
 }
 
-.header .logo {
-  width: 200px;
+.logo {
+  width: 280px;
   margin-bottom: 10px;
 }
 
-.header h1 {
-  font-size: 28px;
-  color: #1a3c40;
-  font-weight: 700;
+h1 {
+  color: #1d3557;
+  margin-bottom: 20px;
 }
 
-/* Cartão */
 .card {
-  max-width: 700px;
-  margin: 30px auto;
   background: #fff;
-  padding: 25px;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 25px;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+  text-align: left;
 }
 
-.field {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 0;
-  border-bottom: 1px solid #eee;
+.card h2 {
+  text-align: center;
+  color: #e3a008; /* Amarelo SEDA */
+  margin-bottom: 20px;
 }
 
-.label {
-  font-weight: 600;
-  color: #444;
-}
-
-.value {
+.card p {
+  font-size: 16px;
+  margin: 12px 0;
   color: #333;
 }
 
-/* Status */
-.status {
-  font-weight: 600;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 14px;
+.card i {
+  color: #0077b6; /* Azul dos ícones */
+  font-size: 22px; /* Ícone grande */
+  margin-right: 8px;
 }
 
-.status.enrolled {
-  background: #d4f8d4;
-  color: #0a7d2f;
-}
-
-/* Rodapé */
 footer {
-  text-align: center;
-  margin: 30px 0 10px;
+  margin-top: 25px;
   font-size: 14px;
-  color: #555;
+  color: #444;
 }
