@@ -4,251 +4,128 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Letter Verification — SEDA</title>
-
 <style>
-/* ====== Tudo com prefixo .sv- para não conflitar com nada ====== */
-:root{
-  --sv-teal:#0A6C7A;
-  --sv-yellow:#F4B01F;
-  --sv-text:#0F172A;
-  --sv-card:#FFFFFF;
-  --sv-shadow:0 12px 28px rgba(0,0,0,.10);
-}
+  :root{
+    --yellow:#F4B01F;
+    --teal:#0A6C7A;
+    --text:#0F172A;
+    --muted:#5B6472;
+    --card:#FFFFFF;
+    --shadow:0 12px 28px rgba(0,0,0,.10);
+    --radius:18px;
+    --maxw:1080px;
+  }
+  html,body{height:100%}
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    color:var(--text);
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+    background: url("background.png") center/cover fixed no-repeat;
+  }
 
-html,body{height:100%}
-body.sv{
-  margin:0;
-  color:var(--sv-text);
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
-  /* Troque pelo nome do seu arquivo de fundo se for diferente */
-  background: url("background.png") center/cover fixed no-repeat;
-}
+  /* ===== HERO ===== */
+  .hero-wrap{ display:flex; justify-content:center; padding:18px 12px 8px; }
+  .hero{
+    width:100%; max-width:var(--maxw);
+    background:var(--yellow);
+    border-radius:var(--radius);
+    padding:18px 20px 22px;
+    text-align:center;
+    box-shadow:var(--shadow);
+  }
+  .hero__top{ display:flex; align-items:center; justify-content:center; gap:14px; }
+  .hero__logo{ height:78px; width:auto; display:block; }
+  .hero__title{ margin:6px 0 12px; font-size:44px; font-weight:900; color:#fff; }
+  .hero__id{
+    display:inline-block; background:#fff; color:#111;
+    padding:12px 18px; border-radius:12px; font-weight:900; font-size:20px;
+    border:3px solid rgba(0,0,0,.12); box-shadow:0 6px 14px rgba(0,0,0,.10);
+  }
 
-/* ===== HERO amarelo central ===== */
-.sv-hero-wrap{ display:flex; justify-content:center; padding:18px 12px 8px; }
-.sv-hero{
-  width:100%;
-  max-width:1080px;
-  background:var(--sv-yellow);
-  border-radius:18px;
-  padding:18px 20px 22px;
-  text-align:center;
-  box-shadow:var(--sv-shadow);
-}
-.sv-hero__logo{ height:78px; width:auto; display:block; margin:0 auto 6px; }
-.sv-hero__title{
-  margin:4px 0 12px;
-  font-size:48px;
-  font-weight:900;
-  color:#fff;
-  line-height:1.05;
-}
-.sv-hero__id{
-  display:inline-block;
-  background:#fff;
-  color:#111;
-  padding:14px 18px;
-  border-radius:12px;
-  font-weight:900;
-  font-size:22px;
-  border:3px solid rgba(0,0,0,.15);
-}
+  /* ===== CONTEÚDO ===== */
+  .wrap{ max-width:var(--maxw); margin: 18px auto 28px; padding: 0 18px; }
+  .card{
+    background:var(--card); border-radius:14px; box-shadow:var(--shadow);
+    padding:26px 28px;
+  }
+  .card__title{ font-size:32px; font-weight:900; color:#1d3557; margin:0 0 10px; }
+  .card__bar{
+    width:86%; max-width:760px; height:4px; background:var(--yellow);
+    border-radius:999px; margin:0 0 10px;
+  }
 
-/* ===== Wrap & Card ===== */
-.sv-wrap{ max-width:1080px; margin: 0 auto 28px; padding: 0 18px; }
-.sv-card{
-  background:var(--sv-card);
-  border-radius:14px;
-  box-shadow:var(--sv-shadow);
-  padding:20px 22px 10px;
-}
-.sv-card__title{
-  text-align:center;
-  font-size:30px;
-  font-weight:900;
-  color:#1d3557;
-  margin:4px 0 10px;
-}
-.sv-card__divider{
-  height:4px; width:86%; max-width:760px;
-  margin:0 auto 6px; background:var(--sv-yellow); border-radius:999px;
-}
+  /* ===== LINHAS ===== */
+  .rows{ margin-top:6px; }
+  .row{
+    display:flex; gap:16px; align-items:flex-start;
+    padding:14px 6px; border-bottom:1px solid #E9EEF2;
+  }
+  .row:last-child{ border-bottom:0; }
+  .tick{ flex:0 0 24px; width:24px; height:24px; display:block; margin-top:2px; }
+  .kv{ display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; }
+  .k{ font-weight:900; font-size:18px; color:#1F2937; white-space:nowrap; }
+  .v{ font-weight:600; font-size:18px; color:var(--muted); }
+  .status--enrolled{ color:#0a7d2f; font-weight:900; }
 
-/* ===== Linhas (ícone + rótulo + valor na mesma linha) ===== */
-.sv-row{
-  display:flex;
-  align-items:center;      /* ícone e texto alinhados verticalmente */
-  gap:14px;
-  padding:14px 8px;
-  border-bottom:1px solid #E5E7EB;
-}
-.sv-row:last-child{ border-bottom:0; }
-
-.sv-icon{
-  color:var(--sv-teal);
-  flex:0 0 44px;
-  display:flex; align-items:center; justify-content:center;
-}
-.sv-icon svg{
-  width:44px !important; height:44px !important;
-  min-width:44px; min-height:44px; max-width:44px; max-height:44px;
-}
-
-.sv-kv{
-  display:flex;             /* rótulo + valor lado a lado */
-  flex:1 1 auto;
-  align-items:baseline;
-  gap:8px;
-  flex-wrap:wrap;           /* se faltar espaço, quebram juntos */
-  min-width:0;              /* permite encolher sem empurrar */
-}
-.sv-k{
-  font-weight:900; font-size:18px; color:#1F2937;
-  white-space:nowrap;       /* “Student Name:” não quebra */
-}
-.sv-v{
-  font-weight:600; font-size:18px; color:#5B6472; line-height:1.2;
-  min-width:0;
-}
-.sv-status--enrolled{ color:#0a7d2f; }
-
-/* ===== Rodapé ===== */
-.sv-footer{
-  text-align:center; color:#374151; font-weight:600; margin:16px 0 6px;
-}
+  /* ===== FOOTER ===== */
+  .footer{ text-align:center; color:#374151; font-weight:600; margin:18px 0 8px; }
 </style>
 </head>
-
-<body class="sv">
+<body>
   <!-- HERO -->
-  <div class="sv-hero-wrap">
-    <header class="sv-hero">
-      <img src="seda-logo-removebg-preview.png" alt="SEDA College" class="sv-hero__logo" />
-      <h1 class="sv-hero__title">Letter Verification</h1>
-      <div class="sv-hero__id">STUDENT ID: 2401269</div>
+  <div class="hero-wrap">
+    <header class="hero">
+      <div class="hero__top">
+        <img src="seda-logo-removebg-preview.png" alt="SEDA College" class="hero__logo" />
+      </div>
+      <h1 class="hero__title">Letter Verification</h1>
+      <div class="hero__id">STUDENT ID: 2401269</div>
     </header>
   </div>
 
   <!-- CARD -->
-  <main class="sv-wrap">
-    <section class="sv-card">
-      <h2 class="sv-card__title">Verification Result</h2>
-      <div class="sv-card__divider"></div>
+  <main class="wrap">
+    <section class="card">
+      <h2 class="card__title">Verification Result</h2>
+      <div class="card__bar"></div>
 
-      <!-- Linha: Issue Date -->
-      <div class="sv-row">
-        <span class="sv-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="2"/>
-            <path d="M6.5 12.5l3.5 3.5 7.5-7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-        <div class="sv-kv">
-          <span class="sv-k">Letter Issue Date:</span>
-          <span class="sv-v">10th September 2025</span>
+      <div class="rows">
+        <div class="row">
+          <img class="tick" src="check.png" alt="">
+          <div class="kv"><span class="k">Letter Issue Date:</span><span class="v">10th September 2025</span></div>
         </div>
-      </div>
-
-      <!-- Linha: Status -->
-      <div class="sv-row">
-        <span class="sv-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="2"/>
-            <path d="M6.5 12.5l3.5 3.5 7.5-7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-        <div class="sv-kv">
-          <span class="sv-k">Status:</span>
-          <span class="sv-v sv-status--enrolled">Enrolled</span>
+        <div class="row">
+          <img class="tick" src="check.png" alt="">
+          <div class="kv"><span class="k">Status:</span><span class="v status--enrolled">Enrolled</span></div>
         </div>
-      </div>
-
-      <!-- Linha: Student Name -->
-      <div class="sv-row">
-        <span class="sv-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="2"/>
-            <path d="M6.5 12.5l3.5 3.5 7.5-7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-        <div class="sv-kv">
-          <span class="sv-k">Student Name:</span>
-          <span class="sv-v">Carina Freitas Busi</span>
+        <div class="row">
+          <img class="tick" src="check.png" alt="">
+          <div class="kv"><span class="k">Student Name:</span><span class="v">Carina Freitas Busi</span></div>
         </div>
-      </div>
-
-      <!-- Linha: DOB -->
-      <div class="sv-row">
-        <span class="sv-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="2"/>
-            <path d="M6.5 12.5l3.5 3.5 7.5-7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-        <div class="sv-kv">
-          <span class="sv-k">Date of Birth:</span>
-          <span class="sv-v">28/03/2002</span>
+        <div class="row">
+          <img class="tick" src="check.png" alt="">
+          <div class="kv"><span class="k">Date of Birth:</span><span class="v">28/03/2002</span></div>
         </div>
-      </div>
-
-      <!-- Linha: Passport -->
-      <div class="sv-row">
-        <span class="sv-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="2"/>
-            <path d="M6.5 12.5l3.5 3.5 7.5-7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-        <div class="sv-kv">
-          <span class="sv-k">Passport No:</span>
-          <span class="sv-v">gg825080</span>
+        <div class="row">
+          <img class="tick" src="check.png" alt="">
+          <div class="kv"><span class="k">Passport No:</span><span class="v">gg825080</span></div>
         </div>
-      </div>
-
-      <!-- Linha: Nationality -->
-      <div class="sv-row">
-        <span class="sv-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="2"/>
-            <path d="M6.5 12.5l3.5 3.5 7.5-7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-        <div class="sv-kv">
-          <span class="sv-k">Nationality:</span>
-          <span class="sv-v">Brazilian</span>
+        <div class="row">
+          <img class="tick" src="check.png" alt="">
+          <div class="kv"><span class="k">Nationality:</span><span class="v">Brazilian</span></div>
         </div>
-      </div>
-
-      <!-- Linha: Course Start -->
-      <div class="sv-row">
-        <span class="sv-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="2"/>
-            <path d="M6.5 12.5l3.5 3.5 7.5-7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-        <div class="sv-kv">
-          <span class="sv-k">Course Commence Date:</span>
-          <span class="sv-v">15/09/2025</span>
+        <div class="row">
+          <img class="tick" src="check.png" alt="">
+          <div class="kv"><span class="k">Course Commence Date:</span><span class="v">15/09/2025</span></div>
         </div>
-      </div>
-
-      <!-- Linha: Course End -->
-      <div class="sv-row">
-        <span class="sv-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="2"/>
-            <path d="M6.5 12.5l3.5 3.5 7.5-7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-        <div class="sv-kv">
-          <span class="sv-k">Course Completion Date:</span>
-          <span class="sv-v">14/05/2026</span>
+        <div class="row">
+          <img class="tick" src="check.png" alt="">
+          <div class="kv"><span class="k">Course Completion Date:</span><span class="v">14/05/2026</span></div>
         </div>
       </div>
     </section>
-
-    <footer class="sv-footer">© SEDA College 2025</footer>
+    <footer class="footer">© SEDA College 2025</footer>
   </main>
 </body>
 </html>
