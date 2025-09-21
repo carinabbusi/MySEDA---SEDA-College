@@ -4,110 +4,135 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Letter Verification</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f3f4f6;
-      margin: 0;
-      padding: 0;
-      color: #111827;
-    }
-    .container {
-      max-width: 750px;
-      margin: 40px auto;
-      background: #fff;
-      padding: 32px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      text-align: center;
-    }
-    .logo {
-      margin-bottom: 20px;
-    }
-    .logo img {
-      max-width: 200px;
-      height: auto;
-    }
-    h1 {
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 24px;
-      color: #1e3a8a;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: left;
-      margin-top: 20px;
-    }
-    td {
-      padding: 14px 12px;
-      border-bottom: 1px solid #e5e7eb;
-      vertical-align: top;
-    }
-    td.label {
-      font-weight: 600;
-      color: #374151;
-      width: 40%;
-    }
-    td.value {
-      color: #111827;
-    }
-    .status {
-      display: inline-block;
-      padding: 6px 14px;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 14px;
-      color: #fff;
-      background-color: #10b981; /* verde para enrolled */
-      text-transform: capitalize;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <div class="logo">
-      <img src="seda-logo.png" alt="SEDA College Logo">
+  <!-- Top banner (amarelo) -->
+  <header class="seda-hero">
+    <img src="seda-logo.png" alt="SEDA College" class="seda-logo" />
+    <h1 class="seda-title">Letter Verification</h1>
+
+    <!-- Campo de Student ID (decorativo, como no site deles) -->
+    <div class="id-box">
+      <label for="studentId">STUDENT ID:</label>
+      <input id="studentId" type="text" value="2401269" readonly>
     </div>
-    <h1>Letter Verification</h1>
-    <table>
-      <tr>
-        <td class="label">Letter Issue Date</td>
-        <td class="value">10th September 2025</td>
-      </tr>
-      <tr>
-        <td class="label">Status</td>
-        <td class="value"><span class="status">Enrolled</span></td>
-      </tr>
-      <tr>
-        <td class="label">Student Name</td>
-        <td class="value">Carina Freitas Busi</td>
-      </tr>
-      <tr>
-        <td class="label">Date of Birth</td>
-        <td class="value">28/03/2002</td>
-      </tr>
-      <tr>
-        <td class="label">Passport No</td>
-        <td class="value">gg825080</td>
-      </tr>
-      <tr>
-        <td class="label">Nationality</td>
-        <td class="value">Brazilian</td>
-      </tr>
-      <tr>
-        <td class="label">Course Commence Date</td>
-        <td class="value">15/09/2025</td>
-      </tr>
-      <tr>
-        <td class="label">Course Completion Date</td>
-        <td class="value">14/05/2026</td>
-      </tr>
-    </table>
-  </div>
+  </header>
+
+  <!-- Card principal -->
+  <main class="card">
+    <h2 class="section-title">Verification Result</h2>
+    <div class="section-divider"></div>
+
+    <ul class="result-list">
+      <!-- Item -->
+      <li class="result-item">
+        <span class="icon">
+          <!-- ícone check SVG -->
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="2" />
+            <path d="M6.5 12.5l3.5 3.5 7.5-7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <div class="kv">
+          <div class="k">Letter Issue Date:</div>
+          <div class="v">10th September 2025</div>
+        </div>
+      </li>
+
+      <li class="result-item">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="2" />
+            <path d="M6.5 12.5l3.5 3.5 7.5-7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <div class="kv">
+          <div class="k">Status:</div>
+          <div class="v"><span class="badge badge-green">Enrolled</span></div>
+        </div>
+      </li>
+
+      <li class="result-item">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="2" />
+            <path d="M6.5 12.5l3.5 3.5 7.5-7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <div class="kv">
+          <div class="k">Student Name:</div>
+          <div class="v">Carina Freitas Busi</div>
+        </div>
+      </li>
+
+      <li class="result-item">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="2" />
+            <path d="M6.5 12.5l3.5 3.5 7.5-7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <div class="kv">
+          <div class="k">Date of Birth:</div>
+          <div class="v">28/03/2002</div>
+        </div>
+      </li>
+
+      <li class="result-item">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="2" />
+            <path d="M6.5 12.5l3.5 3.5 7.5-7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <div class="kv">
+          <div class="k">Passport No:</div>
+          <div class="v">gg825080</div>
+        </div>
+      </li>
+
+      <li class="result-item">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="2" />
+            <path d="M6.5 12.5l3.5 3.5 7.5-7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <div class="kv">
+          <div class="k">Nationality:</div>
+          <div class="v">Brazilian</div>
+        </div>
+      </li>
+
+      <li class="result-item">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="2" />
+            <path d="M6.5 12.5l3.5 3.5 7.5-7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <div class="kv">
+          <div class="k">Course Commence Date:</div>
+          <div class="v">15/09/2025</div>
+        </div>
+      </li>
+
+      <li class="result-item">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="2" />
+            <path d="M6.5 12.5l3.5 3.5 7.5-7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <div class="kv">
+          <div class="k">Course Completion Date:</div>
+          <div class="v">14/05/2026</div>
+        </div>
+      </li>
+    </ul>
+  </main>
+
+  <footer class="site-footer">SEDA College © 2025</footer>
 </body>
 </html>
