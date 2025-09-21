@@ -6,85 +6,74 @@
   font-family: 'Arial', sans-serif;
 }
 
+/* Fundo com imagem */
 body {
-  background: url('background.png') no-repeat center center fixed;
+  background: url("background.png") no-repeat center center fixed;
   background-size: cover;
-  color: #1a1a1a;
 }
 
 /* Cabeçalho */
 .header {
-  background-color: #f4b223;
+  background: #f4a900;
+  padding: 30px;
   text-align: center;
-  padding: 30px 20px;
   border-radius: 0 0 20px 20px;
-  max-width: 900px;
-  margin: 0 auto;
+  color: white;
 }
 
 .header img {
-  max-width: 150px;
-  margin-bottom: 10px;
+  max-height: 60px;
+  display: block;
+  margin: 0 auto 10px auto;
 }
 
 .header h1 {
-  font-size: 32px;
+  font-size: 2rem;
   font-weight: bold;
-  color: white;
-  margin-bottom: 15px;
 }
 
 .student-id {
-  display: inline-block;
+  margin-top: 15px;
   background: white;
-  color: #000;
+  color: #0b0c0c;
   font-weight: bold;
-  padding: 10px 20px;
-  border-radius: 8px;
-  box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
-  font-size: 18px;
+  display: inline-block;
+  padding: 10px 25px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Container principal */
+/* Container branco */
 .container {
-  max-width: 900px;
-  margin: 30px auto;
   background: white;
+  max-width: 800px;
+  margin: 30px auto;
   padding: 30px;
   border-radius: 15px;
-  box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Título de seção */
 .container h2 {
   text-align: center;
   margin-bottom: 20px;
-  font-size: 26px;
-  color: #1a2a3a;
-  border-bottom: 3px solid #f4b223;
+  font-size: 1.8rem;
+  color: #002147;
+  border-bottom: 3px solid #f4a900;
   display: inline-block;
   padding-bottom: 5px;
 }
 
-/* Linha com ícone e dados */
+/* Linhas de dados */
 .row {
   display: flex;
   align-items: center;
   margin: 15px 0;
-  padding: 10px 0;
-  border-bottom: 1px solid #eee;
 }
 
 .icon {
-  flex-shrink: 0;
-  width: 28px;
-  height: 28px;
+  color: #00796b;
+  font-size: 1.6rem;
   margin-right: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #066d73;
-  font-size: 22px;
 }
 
 .kv {
@@ -94,19 +83,17 @@ body {
 
 .k {
   font-weight: bold;
-  color: #1a1a1a;
-  margin-bottom: 3px;
+  color: #0b0c0c;
 }
 
 .v {
-  color: #555;
-  font-size: 15px;
+  color: #333;
 }
 
 /* Rodapé */
 .footer {
   text-align: center;
-  padding: 15px;
-  font-size: 14px;
-  color: #333;
+  margin: 25px 0;
+  color: #0b0c0c;
+  font-size: 0.9rem;
 }
