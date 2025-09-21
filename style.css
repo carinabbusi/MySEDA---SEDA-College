@@ -1,84 +1,92 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f8f9fb;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+:root{
+  --bg:#F5F6FA;
+  --text:#0F172A;
+  --muted:#6B7280;
+  --teal:#0A6C7A;      /* azul/teal dos ícones */
+  --yellow:#F4B01F;    /* linha amarela */
+  --card:#FFFFFF;
+  --shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
-.container {
-  max-width: 700px;
-  margin: 30px auto;
-  padding: 20px;
-  text-align: center;
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
 }
 
-.logo {
-  width: 280px;
-  margin-bottom: 15px;
+.page{max-width:860px;margin:24px auto;padding:0 16px}
+
+.logo{height:72px; width:auto; display:block; margin:0 auto 10px}
+
+.title{
+  text-align:center;
+  font-size:34px;
+  font-weight:900;
+  color:#1d3557;
+  margin:6px 0 8px;
 }
 
-h1 {
-  color: #1d3557;
-  font-size: 26px;
-  margin-bottom: 8px;
+.divider{
+  height:4px;
+  width:100%;
+  max-width:760px;
+  background: var(--yellow);
+  margin: 0 auto 18px;
+  border-radius:999px;
 }
 
-.divider {
-  border: none;
-  height: 3px;
-  background: #fcbf49; /* Amarelo */
-  width: 100%;
-  margin-bottom: 20px;
+.card{
+  background: var(--card);
+  border-radius:14px;
+  box-shadow: var(--shadow);
+  padding: 10px 18px 6px;
 }
 
-.result {
-  background: #fff;
-  border-radius: 12px;
-  padding: 25px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  text-align: left;
+/* Linha com ícone + key/val empilhado */
+.row{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  padding:16px 6px;
+  border-bottom:1px solid #E5E7EB;
+}
+.row:last-child{border-bottom:0}
+
+/* Ícone SVG grande */
+.icon{
+  color: var(--teal);
+  flex: 0 0 34px;
+  display:grid;
+  place-items:center;
+  margin-top:2px;
+}
+.icon svg{width:34px;height:34px}
+
+/* Key/Value */
+.kv{flex:1}
+.k{
+  font-weight:800;
+  color:#1F2937;
+  margin-bottom:4px;
+  font-size:18px;
+}
+.v{
+  color:#5B6472;
+  font-weight:600;
+  font-size:18px;
 }
 
-.item {
-  display: flex;
-  align-items: flex-start;
-  margin: 18px 0;
-}
+/* Status apenas como texto colorido (sem barra cheia) */
+.status{font-weight:900}
+.status--enrolled{color:#0a7d2f}
+.status--expelled{color:#c05a00}
 
-.item i {
-  color: #0077b6;
-  font-size: 22px;
-  margin-right: 12px;
-  margin-top: 2px;
-}
-
-.item strong {
-  font-size: 16px;
-  color: #1d3557;
-}
-
-.item p {
-  margin: 3px 0 0;
-  font-size: 15px;
-  color: #555;
-}
-
-.status.enrolled {
-  color: green;
-  font-weight: bold;
-}
-
-.status.expelled {
-  color: #d2691e;
-  font-weight: bold;
-}
-
-footer {
-  margin-top: 25px;
-  font-size: 14px;
-  color: #444;
+/* Rodapé */
+.footer{
+  text-align:center;
+  color:#374151;
+  font-weight:600;
+  margin:14px 0 28px;
 }
