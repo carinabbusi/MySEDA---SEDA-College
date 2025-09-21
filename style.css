@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f5f6fa;
+  background-color: #f8f9fb;
   margin: 0;
   padding: 0;
   display: flex;
@@ -10,46 +10,71 @@ body {
 }
 
 .container {
-  text-align: center;
-  margin-top: 30px;
-  width: 100%;
   max-width: 700px;
+  margin: 30px auto;
+  padding: 20px;
+  text-align: center;
 }
 
 .logo {
   width: 280px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 h1 {
   color: #1d3557;
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+
+.divider {
+  border: none;
+  height: 3px;
+  background: #fcbf49; /* Amarelo */
+  width: 100%;
   margin-bottom: 20px;
 }
 
-.card {
+.result {
   background: #fff;
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 25px;
-  box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   text-align: left;
 }
 
-.card h2 {
-  text-align: center;
-  color: #e3a008; /* Amarelo SEDA */
-  margin-bottom: 20px;
+.item {
+  display: flex;
+  align-items: flex-start;
+  margin: 18px 0;
 }
 
-.card p {
+.item i {
+  color: #0077b6;
+  font-size: 22px;
+  margin-right: 12px;
+  margin-top: 2px;
+}
+
+.item strong {
   font-size: 16px;
-  margin: 12px 0;
-  color: #333;
+  color: #1d3557;
 }
 
-.card i {
-  color: #0077b6; /* Azul dos ícones */
-  font-size: 22px; /* Ícone grande */
-  margin-right: 8px;
+.item p {
+  margin: 3px 0 0;
+  font-size: 15px;
+  color: #555;
+}
+
+.status.enrolled {
+  color: green;
+  font-weight: bold;
+}
+
+.status.expelled {
+  color: #d2691e;
+  font-weight: bold;
 }
 
 footer {
