@@ -1,92 +1,44 @@
-:root{
-  --bg:#F5F6FA;
-  --text:#0F172A;
-  --muted:#6B7280;
-  --teal:#0A6C7A;      /* azul/teal dos ícones */
-  --yellow:#F4B01F;    /* linha amarela */
-  --card:#FFFFFF;
-  --shadow:0 10px 25px rgba(0,0,0,.08);
-}
-
-*{box-sizing:border-box}
-html,body{margin:0}
 body{
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
+  background: url("background-seda.png") repeat center center fixed;
+  background-size: cover;
+  margin:0;
+  color:#0F172A;
+}
+
+/* HEADER */
+.header{
+  background:#f4b01f;
+  padding:20px;
+  text-align:center;
+  border-radius:0 0 14px 14px;
+}
+.header .logo{
+  height:60px;
+  margin:0 auto 8px;
+}
+.header-title{
+  color:white;
+  font-size:32px;
+  margin:0 0 14px;
+}
+.student-box{
+  background:white;
+  padding:12px 20px;
+  display:inline-block;
+  font-weight:900;
+  font-size:18px;
+  border-radius:6px;
+  border:2px solid #ccc;
 }
 
 .page{max-width:860px;margin:24px auto;padding:0 16px}
-
-.logo{height:72px; width:auto; display:block; margin:0 auto 10px}
-
-.title{
-  text-align:center;
-  font-size:34px;
-  font-weight:900;
-  color:#1d3557;
-  margin:6px 0 8px;
-}
-
-.divider{
-  height:4px;
-  width:100%;
-  max-width:760px;
-  background: var(--yellow);
-  margin: 0 auto 18px;
-  border-radius:999px;
-}
-
 .card{
-  background: var(--card);
+  background:white;
   border-radius:14px;
-  box-shadow: var(--shadow);
-  padding: 10px 18px 6px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  padding:10px 18px 6px;
+  margin-top:20px;
 }
 
-/* Linha com ícone + key/val empilhado */
-.row{
-  display:flex;
-  gap:14px;
-  align-items:flex-start;
-  padding:16px 6px;
-  border-bottom:1px solid #E5E7EB;
-}
-.row:last-child{border-bottom:0}
-
-/* Ícone SVG grande */
-.icon{
-  color: var(--teal);
-  flex: 0 0 34px;
-  display:grid;
-  place-items:center;
-  margin-top:2px;
-}
-.icon svg{width:34px;height:34px}
-
-/* Key/Value */
-.kv{flex:1}
-.k{
-  font-weight:800;
-  color:#1F2937;
-  margin-bottom:4px;
-  font-size:18px;
-}
-.v{
-  color:#5B6472;
-  font-weight:600;
-  font-size:18px;
-}
-
-/* Status apenas como texto colorido (sem barra cheia) */
-.status{font-weight:900}
-.status--enrolled{color:#0a7d2f}
-.status--expelled{color:#c05a00}
-
-/* Rodapé */
-.footer{
-  text-align:center;
-  color:#374151;
-  font-weight:600;
-  margin:14px 0 28px;
-}
+/* resto das regras igual já mandei antes... */
