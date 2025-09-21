@@ -1,14 +1,12 @@
 :root{
-  --bg:#F5F6FA;
   --teal:#0A6C7A;       /* azul dos ícones */
   --yellow:#F4B01F;     /* amarelo do banner e linha */
   --text:#0F172A;
-  --muted:#6B7280;
   --card:#FFFFFF;
   --shadow:0 12px 28px rgba(0,0,0,.10);
 }
 
-/* Fundo com a imagem que você enviou */
+/* FUNDO */
 html,body{height:100%}
 body{
   margin:0;
@@ -17,27 +15,23 @@ body{
   background: url("background-seda.png") center/cover fixed no-repeat;
 }
 
-/* ===== HERO AMARELO CENTRAL (não ocupa a tela toda) ===== */
+/* BANNER AMARELO CENTRAL */
+.hero-wrap{ display:flex; justify-content:center; padding:18px 12px 8px; }
 .hero{
-  max-width: 1080px;       /* largura centralizada */
-  margin: 18px auto 12px;
+  width: 100%;
+  max-width: 1080px;
   background: var(--yellow);
   border-radius: 18px;
   padding: 18px 20px 22px;
   text-align: center;
   box-shadow: var(--shadow);
 }
-.hero__logo{
-  height: 78px;
-  width: auto;
-  display:block;
-  margin: 0 auto 6px;
-}
+.hero__logo{ height:78px; width:auto; display:block; margin:0 auto 6px; }
 .hero__title{
   margin: 4px 0 12px;
   font-size: 48px;
   font-weight: 900;
-  color: #fff;             /* título branco */
+  color: #fff;
   line-height: 1.05;
 }
 .hero__id{
@@ -51,45 +45,25 @@ body{
   border: 3px solid rgba(0,0,0,.15);
 }
 
-/* ===== WRAP & CARD ===== */
-.wrap{
-  max-width: 1080px;
-  margin: 0 auto 28px;
-  padding: 0 18px;
-}
+/* CONTAINER & CARD */
+.wrap{ max-width: 1080px; margin: 0 auto 28px; padding: 0 18px; }
 .card{
   background: var(--card);
   border-radius: 14px;
   box-shadow: var(--shadow);
   padding: 20px 22px 10px;
 }
-.card__title{
-  text-align:center;
-  font-size: 30px;
-  font-weight: 900;
-  color:#1d3557;
-  margin: 4px 0 10px;
-}
-.card__divider{
-  height:4px;
-  width: 86%;
-  max-width: 760px;
-  margin: 0 auto 6px;
-  background: var(--yellow);  /* linha amarela */
-  border-radius: 999px;
-}
+.card__title{ text-align:center; font-size:30px; font-weight:900; color:#1d3557; margin:4px 0 10px; }
+.card__divider{ height:4px; width:86%; max-width:760px; margin:0 auto 6px; background:var(--yellow); border-radius:999px; }
 
-/* ===== LISTA DE ITENS ===== */
-.row{
-  display:flex;
-  gap:16px;
-  align-items:flex-start;
-  padding: 16px 6px;
-  border-bottom:1px solid #E5E7EB;
-}
-.row:last-child{border-bottom:0}
+/* BLOQUEIA qq img/svg solto gigante dentro do card */
+.card > img, .card > svg{ display:none !important; }
 
-/* Ícone de check GRANDE (44px) */
+/* LINHAS */
+.row{ display:flex; gap:16px; align-items:flex-start; padding:16px 6px; border-bottom:1px solid #E5E7EB; }
+.row:last-child{ border-bottom:0; }
+
+/* ÍCONE GRANDE FIXO (44px) */
 .icon{
   color: var(--teal);
   flex: 0 0 44px;
@@ -97,21 +71,18 @@ body{
   place-items:center;
   margin-top:2px;
 }
-.icon svg{ width:44px; height:44px; }
+.icon svg{
+  width:44px !important;
+  height:44px !important;
+  min-width:44px;
+  min-height:44px;
+  max-width:44px;
+  max-height:44px;
+}
 
-.kv{flex:1}
+/* TEXTO */
+.kv{ flex:1; }
 .k{ font-weight:900; font-size:18px; color:#1F2937; margin-bottom:4px; }
 .v{ font-weight:600; font-size:18px; color:#5B6472; }
-
-/* Status colorido (texto apenas) */
 .status{ font-weight:900; }
-.status--enrolled{ color:#0a7d2f; }
-.status--expelled{ color:#c05a00; }
-
-/* Rodapé */
-.footer{
-  text-align:center;
-  color:#374151;
-  font-weight:600;
-  margin: 16px 0 6px;
-}
+.status-
