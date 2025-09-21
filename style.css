@@ -1,88 +1,97 @@
-:root{
-  --teal:#0A6C7A;       /* azul dos ícones */
-  --yellow:#F4B01F;     /* amarelo do banner e linha */
-  --text:#0F172A;
-  --card:#FFFFFF;
-  --shadow:0 12px 28px rgba(0,0,0,.10);
+/* Fundo */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
 }
 
-/* FUNDO */
-html,body{height:100%}
-body{
-  margin:0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
-  color: var(--text);
-  background: url("background-seda.png") center/cover fixed no-repeat;
+.background {
+  background: url("background.png") no-repeat center center fixed;
+  background-size: cover;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  opacity: 0.1;
+  z-index: -1;
 }
 
-/* BANNER AMARELO CENTRAL */
-.hero-wrap{ display:flex; justify-content:center; padding:18px 12px 8px; }
-.hero{
-  width: 100%;
-  max-width: 1080px;
-  background: var(--yellow);
-  border-radius: 18px;
-  padding: 18px 20px 22px;
+/* Cabeçalho */
+header {
+  background-color: #f4b321;
   text-align: center;
-  box-shadow: var(--shadow);
+  padding: 20px;
+  border-radius: 0 0 15px 15px;
 }
-.hero__logo{ height:78px; width:auto; display:block; margin:0 auto 6px; }
-.hero__title{
-  margin: 4px 0 12px;
-  font-size: 48px;
-  font-weight: 900;
-  color: #fff;
-  line-height: 1.05;
+
+header .logo {
+  height: 60px;
+  display: block;
+  margin: 0 auto 10px auto;
 }
-.hero__id{
-  display:inline-block;
-  background:#fff;
-  color:#111;
-  padding: 14px 18px;
-  border-radius: 12px;
-  font-weight: 900;
+
+header h1 {
+  color: white;
+  margin: 0;
+  font-size: 28px;
+}
+
+header .student-id {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  background: white;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* Conteúdo */
+main {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.card {
+  background: white;
+  border-radius: 15px;
+  padding: 25px 40px;
+  width: 70%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+  text-align: center;
+  color: #1a1a1a;
+  border-bottom: 3px solid #f4b321;
+  padding-bottom: 10px;
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+}
+
+.info-list li {
+  font-size: 18px;
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  color: #0a6c74;
   font-size: 22px;
-  border: 3px solid rgba(0,0,0,.15);
+  margin-right: 10px;
 }
 
-/* CONTAINER & CARD */
-.wrap{ max-width: 1080px; margin: 0 auto 28px; padding: 0 18px; }
-.card{
-  background: var(--card);
-  border-radius: 14px;
-  box-shadow: var(--shadow);
-  padding: 20px 22px 10px;
+/* Rodapé */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: transparent;
+  font-size: 14px;
+  color: #1a1a1a;
 }
-.card__title{ text-align:center; font-size:30px; font-weight:900; color:#1d3557; margin:4px 0 10px; }
-.card__divider{ height:4px; width:86%; max-width:760px; margin:0 auto 6px; background:var(--yellow); border-radius:999px; }
-
-/* BLOQUEIA qq img/svg solto gigante dentro do card */
-.card > img, .card > svg{ display:none !important; }
-
-/* LINHAS */
-.row{ display:flex; gap:16px; align-items:flex-start; padding:16px 6px; border-bottom:1px solid #E5E7EB; }
-.row:last-child{ border-bottom:0; }
-
-/* ÍCONE GRANDE FIXO (44px) */
-.icon{
-  color: var(--teal);
-  flex: 0 0 44px;
-  display:grid;
-  place-items:center;
-  margin-top:2px;
-}
-.icon svg{
-  width:44px !important;
-  height:44px !important;
-  min-width:44px;
-  min-height:44px;
-  max-width:44px;
-  max-height:44px;
-}
-
-/* TEXTO */
-.kv{ flex:1; }
-.k{ font-weight:900; font-size:18px; color:#1F2937; margin-bottom:4px; }
-.v{ font-weight:600; font-size:18px; color:#5B6472; }
-.status{ font-weight:900; }
-.status-
